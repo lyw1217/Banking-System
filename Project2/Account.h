@@ -24,11 +24,11 @@ public:
 		strcpy(this->name, ref.name);
 	}
 
-	void PrintAccount(void);
+	void PrintAccount(void) const;
 
-	int GetNum();
-	int GetMoney();
-	const char* GetName();
+	int GetNum() const;
+	int GetMoney() const;
+	const char* GetName() const;
 
 	void SetMoney(int _money);
 	

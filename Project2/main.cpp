@@ -1,7 +1,9 @@
 /*
 윤성우의 열혈 C++ 프로그래밍
 OOP 단계별 프로젝트
-Version : 0.3
+Version : 0.4
+Date : `20. 02. 07 (FRI)
+YoungWoo Lee
 */
 
 #include <iostream>
