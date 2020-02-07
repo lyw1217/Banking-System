@@ -24,6 +24,8 @@ public:
 		strcpy(this->name, ref.name);
 	}
 
+	// 멤버 변수의 값 변경을 허용하지 않는 함수들에는
+	// const 를 붙여주자
 	void PrintAccount(void) const;
 
 	int GetNum() const;
