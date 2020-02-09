@@ -1,5 +1,7 @@
 #include "AccountHandler.h"
 
+enum {LEVEL_A = 7, LEVEL_B = 4, LEVEL_C = 2};
+
 AccountHandler::AccountHandler() :accNum(0) {
 	// Account 클래스 멤버 변수를 어떻게 초기화 해야 하지..
 }
@@ -15,15 +17,38 @@ void AccountHandler::ShowMenu(void) const {
 }
 
 bool AccountHandler::CreatAccount(void) {
-	int num, money;
+	int choice;
+
+	std::cout << "\n[계좌종류선택]\n";
+	std::cout << "1. 보통예금계좌  2.신용신뢰계좌\n"; std::cin >> choice;
+
+	switch (choice) {
+	case 1:
+		if (!CreatNormalAccount())
+			return false;
+		break;
+	case 2:
+		if (!CreatCreditAccount())
+			return false;
+		break;
+	default:
+		std::cout << "1 또는 2를 입력하세요.\n";
+		return false;
+	}
+
+	return true;
+}
+bool AccountHandler::CreatNormalAccount(void) {
+	int num, money, rate;
 	char name[NAME_LEN];
 
-	std::cout << "\n[계좌 개설]\n";
+	std::cout << "\n[보통예금계좌 개설]\n";
 	std::cout << "계좌ID: "; std::cin >> num;
 	std::cout << "이 름: "; std::cin >> name;
 	std::cout << "입금액: "; std::cin >> money;
+	std::cout << "이자율: "; std::cin >> rate;
 
-	accArr[accNum] = new Account(num, money, name);
+	accArr[accNum] = new NormalAccount(num, money, name, rate);
 
 	if (strlen(accArr[accNum]->GetName()) == 0) {
 		return false;
@@ -33,6 +58,41 @@ bool AccountHandler::CreatAccount(void) {
 		return true;
 	}
 }
+bool AccountHandler::CreatCreditAccount(void) {
+	int num, money, rate, level;
+	char name[NAME_LEN];
+
+	std::cout << "\n[신용신뢰계좌 개설]\n";
+	std::cout << "계좌ID: "; std::cin >> num;
+	std::cout << "이 름: "; std::cin >> name;
+	std::cout << "입금액: "; std::cin >> money;
+	std::cout << "이자율: "; std::cin >> rate;
+	std::cout << "신용등급(1toA, 2toB, 3toC): "; std::cin >> level;
+
+	switch (level) {
+	case 1:
+		accArr[accNum] = new HighCreditAccount(num, money, name, rate, LEVEL_A);
+		break;
+	case 2:
+		accArr[accNum] = new HighCreditAccount(num, money, name, rate, LEVEL_B);
+		break;
+	case 3:
+		accArr[accNum] = new HighCreditAccount(num, money, name, rate, LEVEL_C);
+		break;
+	default:
+		std::cout << "신용 등급을 잘못 입력했습니다.\n";
+		return false;
+	}
+
+	if (strlen(accArr[accNum]->GetName()) == 0) {
+		return false;
+	}
+	else {
+		std::cout << accArr[accNum++]->GetNum() << " 계좌 개설 완료\n\n";
+		return true;
+	}
+}
+
 bool AccountHandler::InputMoney(void) {
 	int i, num, money;
 

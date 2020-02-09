@@ -22,6 +22,6 @@ public:
 	int GetMoney() const;
 	const char* GetName() const;
 
-	void SetMoney(int _money);
+	virtual void SetMoney(int _money);
 };
 

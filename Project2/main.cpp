@@ -3,10 +3,12 @@
 OOP 단계별 프로젝트
 Date : `20. 02. 09 (SUN)
 
-Version : 0.5
-주요 내용 : 컨트롤 클래스를 작성하고, 전역변수, 함수를 없애자
-- AccountHandler 클래스 작성
-- state boolean형으로 바꿈
+Version : 0.6
+주요 내용 : Account 클래스를 상속하는 NormalAccount, HighCreditAccout 추가
+			계좌 생성 시 이자율 입력
+			입금시 이자율에 따라 이자 지급
+			고신용계좌는 신용등급에 따라 입금시 추가 이자 지급
+미해결
 ? AccoutHander 생성자에서 Accout 멤버변수 초기화를 어떻게 해야하지?
 	전부 0으로 초기화하면 되려나?
 
