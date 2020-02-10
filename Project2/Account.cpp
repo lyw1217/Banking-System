@@ -20,9 +20,9 @@ Account::~Account() {
 }
 
 void Account::PrintAccount(void) const{
-	std::cout << "°èÁÂID : " << this->account_num << std::endl;
-	std::cout << "ÀÌ ¸§ : " << this->name << std::endl;
-	std::cout << "ÀÜ ¾× : " << this->money << std::endl << std::endl;
+	cout << "°èÁÂID : " << this->account_num << endl;
+	cout << "ÀÌ ¸§ : " << this->name << endl;
+	cout << "ÀÜ ¾× : " << this->money << endl << endl;
 }
 
 int Account::GetNum() const{

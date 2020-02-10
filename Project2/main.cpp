@@ -1,28 +1,23 @@
 /*
 윤성우의 열혈 C++ 프로그래밍
 OOP 단계별 프로젝트
-Date : `20. 02. 09 (SUN)
+Date : `20. 02. 10 (MON)
 
-Version : 0.6
-주요 내용 : Account 클래스를 상속하는 NormalAccount, HighCreditAccout 추가
-			계좌 생성 시 이자율 입력
-			입금시 이자율에 따라 이자 지급
-			고신용계좌는 신용등급에 따라 입금시 추가 이자 지급
+Version : 0.7
+주요 내용 : 파일 분할을 좀 더 정확하게 하자
+공통적으로 포함해야 하는 내용들은 공통헤더를 만들자(std나 enum같이)
+
 미해결
 ? AccoutHander 생성자에서 Accout 멤버변수 초기화를 어떻게 해야하지?
 	전부 0으로 초기화하면 되려나?
+? Handler에서, 상속받는 클래스를 생성하는 함수는 왜 protected 일까?
 
 YoungWoo Lee
 */
 
-#include <iostream>
-#include <cstring>
+#include "CommonDecl.h"
 #include "Account.h"
 #include "AccountHandler.h"
-
-using namespace std;
-
-enum { CREATE = 1, INPUT, OUTPUT, PRINT, EXIT }; // choice
 
 int main() {
 

@@ -1,11 +1,9 @@
 #pragma once
-#include <iostream>
+#include "CommonDecl.h"
 #include "Account.h"
 #include "NormalAccount.h"
 #include "HighCreditAccount.h"
 
-#define NAME_LEN 20
-#define MAX_ACCOUNT 100
 
 class AccountHandler
 {

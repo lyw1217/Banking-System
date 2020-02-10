@@ -1,6 +1,6 @@
 #pragma once
-#include <iostream>
-#include <cstring>
+#include "CommonDecl.h"
+
 class Account
 {
 private:
